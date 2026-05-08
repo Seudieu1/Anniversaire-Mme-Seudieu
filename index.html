@@ -584,6 +584,41 @@
                 font-size: 1.7rem;
             }
         }
+
+        /* ── Language switcher (fixed widget) ─────────────────────────────── */
+        .lang-switcher {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1000;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--gold-dark);
+            color: var(--gold-dark);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            padding: 7px 13px;
+            border-radius: 999px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+            transition: background 0.2s, color 0.2s, transform 0.15s;
+        }
+
+        .lang-btn:hover {
+            transform: translateX(-3px);
+        }
+
+        .lang-btn.active {
+            background: var(--gold-dark);
+            color: var(--white);
+        }
     </style>
 </head>
 
@@ -596,14 +631,14 @@
         </div>
         <div class="dots-grid" aria-hidden="true"></div>
 
-        <p class="hero-badge">Invitation de Princesse Marjolaine Sorel</p>
+        <p class="hero-badge" data-i18n="badge">Invitation de Princesse Marjolaine Sorel</p>
 
         <h1 class="hero-title">
-            Anniversaire
+            <span data-i18n="heroTitle">Anniversaire</span>
             <span class="name">Seudieu Marjolaine Sorel</span>
         </h1>
 
-        <p class="hero-sub">
+        <p class="hero-sub" data-i18n-html="heroSub">
             Rejoignez-nous pour célébrer <strong>Seudieu Marjolaine Sorel</strong><br>
             lors d'une soirée surprise inoubliable.
         </p>
@@ -611,25 +646,23 @@
         <div class="hero-cd" aria-label="Compte à rebours" aria-live="polite">
             <div class="hero-cd-box">
                 <span id="h-days" class="hero-cd-num">--</span>
-                <span class="hero-cd-label">Jours</span>
+                <span class="hero-cd-label" data-i18n="days">Jours</span>
             </div>
             <div class="hero-cd-box">
                 <span id="h-hours" class="hero-cd-num">--</span>
-                <span class="hero-cd-label">Heures</span>
+                <span class="hero-cd-label" data-i18n="hours">Heures</span>
             </div>
             <div class="hero-cd-box">
                 <span id="h-minutes" class="hero-cd-num">--</span>
-                <span class="hero-cd-label">Minutes</span>
+                <span class="hero-cd-label" data-i18n="minutes">Minutes</span>
             </div>
             <div class="hero-cd-box">
                 <span id="h-seconds" class="hero-cd-num">--</span>
-                <span class="hero-cd-label">Secondes</span>
+                <span class="hero-cd-label" data-i18n="seconds">Secondes</span>
             </div>
         </div>
 
-        <a href="#invitation" class="hero-cta">
-            Voir l'invitation ↓
-        </a>
+        <a href="#invitation" class="hero-cta" data-i18n="heroCta">Voir l'invitation ↓</a>
 
         <div class="hero-arrow" aria-hidden="true">↓</div>
     </section>
@@ -640,8 +673,8 @@
         <!-- Invitation -->
         <article class="card" id="invitation">
             <div class="card-icon">🎂</div>
-            <h2>Invitation</h2>
-            <p class="card-desc">
+            <h2 data-i18n="invTitle">Invitation</h2>
+            <p class="card-desc" data-i18n-html="invDesc">
                 Chers amis, chers proches,<br><br>
                 50 ans : L'éclat d'une vie, le plaisir de le fêter ensemble. Chers proches, chers amis, pour marquer ses
                 50 ans,
@@ -655,20 +688,20 @@
 
             <div class="info-grid">
                 <div class="info-item">
-                    <div class="lbl">📅 Date</div>
-                    <div class="val">Samedi 04 Juillet 2026</div>
+                    <div class="lbl" data-i18n="lblDate">📅 Date</div>
+                    <div class="val" data-i18n="valDate">Samedi 04 Juillet 2026</div>
                 </div>
                 <div class="info-item">
-                    <div class="lbl">🕑 Heure</div>
-                    <div class="val">À partir de 18 h 30</div>
+                    <div class="lbl" data-i18n="lblTime">🕑 Heure</div>
+                    <div class="val" data-i18n="valTime">À partir de 18 h 30</div>
                 </div>
                 <div class="info-item">
-                    <div class="lbl">📍 Lieu</div>
+                    <div class="lbl" data-i18n="lblVenue">📍 Lieu</div>
                     <div class="val">Borsigstraße 2, 63165 Mühlheim am Main</div>
                 </div>
                 <div class="info-item">
-                    <div class="lbl">✉️ RSVP avant le</div>
-                    <div class="val">04 Juin 2026</div>
+                    <div class="lbl" data-i18n="lblRsvp">✉️ RSVP avant le</div>
+                    <div class="val" data-i18n="valRsvp">04 Juin 2026</div>
                 </div>
             </div>
         </article>
@@ -676,35 +709,35 @@
         <!-- Countdown -->
         <article class="card">
             <div class="card-icon">⏳</div>
-            <h2>Compte à rebours</h2>
-            <p class="card-desc">La fête approche à grands pas — soyez prêts !</p>
+            <h2 data-i18n="cdTitle">Compte à rebours</h2>
+            <p class="card-desc" data-i18n="cdDesc">La fête approche à grands pas — soyez prêts !</p>
 
             <div class="cd-grid" aria-live="polite" aria-label="Compte à rebours">
                 <div class="cd-box">
                     <span id="days" class="cd-num">--</span>
-                    <span class="cd-label">Jours</span>
+                    <span class="cd-label" data-i18n="days">Jours</span>
                 </div>
                 <div class="cd-box">
                     <span id="hours" class="cd-num">--</span>
-                    <span class="cd-label">Heures</span>
+                    <span class="cd-label" data-i18n="hours">Heures</span>
                 </div>
                 <div class="cd-box">
                     <span id="minutes" class="cd-num">--</span>
-                    <span class="cd-label">Minutes</span>
+                    <span class="cd-label" data-i18n="minutes">Minutes</span>
                 </div>
                 <div class="cd-box">
                     <span id="seconds" class="cd-num">--</span>
-                    <span class="cd-label">Secondes</span>
+                    <span class="cd-label" data-i18n="seconds">Secondes</span>
                 </div>
             </div>
-            <p id="countdown-message" class="cd-message">La surprise approche ✨</p>
+            <p id="countdown-message" class="cd-message" data-i18n="cdMsg">La surprise approche ✨</p>
         </article>
 
         <!-- Lieu -->
         <article class="card">
             <div class="card-icon">🗺️</div>
-            <h2>Lieu de la fête</h2>
-            <p class="card-desc">Retrouvez facilement l'adresse grâce à la carte ci-dessous.</p>
+            <h2 data-i18n="venueTitle">Lieu de la fête</h2>
+            <p class="card-desc" data-i18n="venueDesc">Retrouvez facilement l'adresse grâce à la carte ci-dessous.</p>
 
             <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps?q=Crystal+Dream+Palace,+Borsigstra%C3%9Fe+2,+63165+M%C3%BChlheim+am+Main&output=embed"
@@ -714,15 +747,15 @@
             <a class="btn"
                 href="https://www.google.com/maps/place/Crystal+Dream+Palace/@50.1193479,8.8132324,17z/data=!4m9!1m2!2m1!1sBorsigstra%C3%9Fe+2!3m5!1s0x47bd1154dee6ee77:0x277b525845f99bbf!8m2!3d50.119348!4d8.8181033!16s%2Fg%2F11vs9v6c6w!5m1!1e2?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank" rel="noopener noreferrer">
-                Ouvrir dans Google Maps →
+                <span data-i18n="btnMap">Ouvrir dans Google Maps →</span>
             </a>
         </article>
 
         <!-- RSVP -->
         <article class="card">
             <div class="card-icon">✅</div>
-            <h2>Confirmer votre présence</h2>
-            <p class="card-desc">
+            <h2 data-i18n="rsvpTitle">Confirmer votre présence</h2>
+            <p class="card-desc" data-i18n-html="rsvpDesc">
                 Merci de remplir le formulaire ci-dessous avant le <strong>04 Juin 2026</strong>
                 afin que nous puissions préparer au mieux cette belle surprise.
             </p>
@@ -739,14 +772,114 @@
     <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
     <footer class="footer">
         <div class="footer-rule"><span class="icon">🎉</span></div>
-        <p class="footer-quote">
+        <p class="footer-quote" data-i18n-html="footerQuote">
             Nous espérons vous compter parmi nous pour faire de cette surprise<br>
             un moment véritablement inoubliable.
         </p>
         <div class="footer-hearts">❤️</div>
     </footer>
 
+    <!-- ═══════════════════════ LANG WIDGET ═══════════════════════ -->
+    <div class="lang-switcher" role="group" aria-label="Langue / Language / Sprache">
+        <button class="lang-btn active" onclick="setLang('fr')" aria-label="Français">FR</button>
+        <button class="lang-btn" onclick="setLang('de')" aria-label="Deutsch">DE</button>
+        <button class="lang-btn" onclick="setLang('en')" aria-label="English">EN</button>
+    </div>
+
     <script>
+        /* ── Translations ────────────────────────────────────────────────── */
+        const T = {
+            fr: {
+                badge: 'Invitation de Princesse Marjolaine Sorel',
+                heroTitle: 'Anniversaire',
+                heroSub: 'Rejoignez-nous pour célébrer <strong>Seudieu Marjolaine Sorel</strong><br>lors d\'une soirée surprise inoubliable.',
+                heroCta: 'Voir l\'invitation ↓',
+                days: 'Jours', hours: 'Heures', minutes: 'Minutes', seconds: 'Secondes',
+                invTitle: 'Invitation',
+                invDesc: 'Chers amis, chers proches,<br><br>50 ans : L\'éclat d\'une vie, le plaisir de le fêter ensemble. Pour marquer ses 50 ans, Sorel serait comblée de vous avoir à ses côtés. Une étape aussi belle se doit d\'être partagée avec ceux qui comptent. Nous vous attendons le samedi 4 juillet 2026 dès 18h30 pour une soirée placée sous le signe de la convivialité et du bonheur. Merci de bien vouloir nous confirmer votre présence ainsi que le nombre de participants avant le 04 Juin afin de nous permettre d\'organiser au mieux cette belle réception.',
+                lblDate: '📅 Date', valDate: 'Samedi 04 Juillet 2026',
+                lblTime: '🕑 Heure', valTime: 'À partir de 18 h 30',
+                lblVenue: '📍 Lieu',
+                lblRsvp: '✉️ RSVP avant le', valRsvp: '04 Juin 2026',
+                cdTitle: 'Compte à rebours',
+                cdDesc: 'La fête approche à grands pas — soyez prêts !',
+                cdMsg: 'La surprise approche ✨',
+                cdDone: 'Le grand jour est arrivé 🎂',
+                venueTitle: 'Lieu de la fête',
+                venueDesc: 'Retrouvez facilement l\'adresse grâce à la carte ci-dessous.',
+                btnMap: 'Ouvrir dans Google Maps →',
+                rsvpTitle: 'Confirmer votre présence',
+                rsvpDesc: 'Merci de remplir le formulaire ci-dessous avant le <strong>04 Juin 2026</strong> afin que nous puissions préparer au mieux cette belle surprise.',
+                footerQuote: 'Nous espérons vous compter parmi nous pour faire de cette surprise<br>un moment véritablement inoubliable.',
+            },
+            de: {
+                badge: 'Einladung für Prinzessin Marjolaine Sorel',
+                heroTitle: 'Geburtstag',
+                heroSub: 'Feiern Sie mit uns <strong>Seudieu Marjolaine Sorel</strong><br>bei einer unvergesslichen Überraschungsfeier.',
+                heroCta: 'Einladung ansehen ↓',
+                days: 'Tage', hours: 'Stunden', minutes: 'Minuten', seconds: 'Sekunden',
+                invTitle: 'Einladung',
+                invDesc: 'Liebe Freunde, liebe Angehörige,<br><br>50 Jahre – ein Leben voller Glanz, ein Anlass zum gemeinsamen Feiern. Für diesen besonderen Meilenstein wäre Sorel überglücklich, Sie an ihrer Seite zu wissen. Wir erwarten Sie am Samstag, den 4. Juli 2026 ab 18:30 Uhr zu einem Abend der Herzlichkeit und des Glücks. Bitte bestätigen Sie Ihre Anwesenheit sowie die Anzahl der Teilnehmer bis zum 04. Juni, damit wir diesen schönen Empfang bestmöglich vorbereiten können.',
+                lblDate: '📅 Datum', valDate: 'Samstag, 04. Juli 2026',
+                lblTime: '🕑 Uhrzeit', valTime: 'Ab 18:30 Uhr',
+                lblVenue: '📍 Ort',
+                lblRsvp: '✉️ RSVP bis', valRsvp: '04. Juni 2026',
+                cdTitle: 'Countdown',
+                cdDesc: 'Das Fest rückt näher — seid bereit!',
+                cdMsg: 'Die Überraschung naht ✨',
+                cdDone: 'Der große Tag ist da 🎂',
+                venueTitle: 'Festort',
+                venueDesc: 'Finden Sie die Adresse ganz einfach mit der Karte unten.',
+                btnMap: 'In Google Maps öffnen →',
+                rsvpTitle: 'Anwesenheit bestätigen',
+                rsvpDesc: 'Bitte füllen Sie das Formular unten vor dem <strong>04. Juni 2026</strong> aus, damit wir diese wunderschöne Überraschung bestmöglich vorbereiten können.',
+                footerQuote: 'Wir hoffen, Sie bei uns begrüßen zu dürfen,<br>um diese Überraschung zu einem unvergesslichen Moment zu machen.',
+            },
+            en: {
+                badge: 'Invitation for Princess Marjolaine Sorel',
+                heroTitle: 'Birthday',
+                heroSub: 'Join us to celebrate <strong>Seudieu Marjolaine Sorel</strong><br>at an unforgettable surprise evening.',
+                heroCta: 'View the invitation ↓',
+                days: 'Days', hours: 'Hours', minutes: 'Minutes', seconds: 'Seconds',
+                invTitle: 'Invitation',
+                invDesc: 'Dear friends, dear loved ones,<br><br>50 years – the radiance of a lifetime, the joy of celebrating together. For this beautiful milestone, Sorel would be overjoyed to have you by her side. We look forward to welcoming you on Saturday, July 4th 2026 from 6:30 PM for an evening of warmth and happiness. Please confirm your attendance and the number of guests before June 4th so we can best prepare this wonderful reception.',
+                lblDate: '📅 Date', valDate: 'Saturday, July 4th 2026',
+                lblTime: '🕑 Time', valTime: 'From 6:30 PM',
+                lblVenue: '📍 Venue',
+                lblRsvp: '✉️ RSVP by', valRsvp: 'June 4, 2026',
+                cdTitle: 'Countdown',
+                cdDesc: 'The party is just around the corner — get ready!',
+                cdMsg: 'The surprise is coming ✨',
+                cdDone: 'The big day has arrived 🎂',
+                venueTitle: 'Party Venue',
+                venueDesc: 'Find the address easily using the map below.',
+                btnMap: 'Open in Google Maps →',
+                rsvpTitle: 'Confirm your attendance',
+                rsvpDesc: 'Please fill in the form below before <strong>June 4, 2026</strong> so we can best prepare this wonderful surprise.',
+                footerQuote: 'We hope to have you with us to make this surprise<br>a truly unforgettable moment.',
+            },
+        };
+
+        let currentLang = localStorage.getItem('lang') || 'fr';
+
+        function setLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang;
+            const t = T[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                if (t[key] !== undefined) el.textContent = t[key];
+            });
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.dataset.i18nHtml;
+                if (t[key] !== undefined) el.innerHTML = t[key];
+            });
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('onclick') === `setLang('${lang}')`);
+            });
+        }
+
         /* ── Countdown ───────────────────────────────────────────────────── */
         const EVENT = new Date('2026-07-04T18:30:00');
 
@@ -770,7 +903,7 @@
             if (diff <= 0) {
                 ['days', 'hours', 'minutes', 'seconds'].forEach(k => { els[k].textContent = '00'; });
                 ['hd', 'hh', 'hm', 'hs'].forEach(k => { els[k].textContent = '00'; });
-                els.msg.textContent = 'Le grand jour est arrivé 🎂';
+                els.msg.textContent = T[currentLang].cdDone;
                 return;
             }
 
@@ -790,7 +923,7 @@
             els.hm.textContent = pad(m);
             els.hs.textContent = pad(s);
 
-            els.msg.textContent = 'La surprise approche ✨';
+            // message handled by setLang()
         }
 
         tick();
@@ -836,6 +969,7 @@
         window.addEventListener('load', () => {
             launchConfetti();
             setTimeout(launchConfetti, 1600);
+            setLang(currentLang);
         });
     </script>
 
